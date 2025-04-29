@@ -1,21 +1,8 @@
-const http = require('http');
-const url = require('url');
+const express = require('express');
+const app = express();
 
-const server = http.createServer((req, res) => {
-    const pathName = req.url;
-    if (pathName === '/product') {
-        res.end('this is a product page');
-    } else if(pathName === '/overview') { 
-        res.end('this is a overview page');
-    } else {
-        res.writeHead(404, {
-            'content-type': 'text/html'
-        });
-        res.end('<h1>page Not Found</h1>');
-    }
-    res.end('hello from the server')
-});
+const port = process.env.PORT || 5000
 
-server.listen(5000, '127.0.0.1', () => { 
-    console.log('listening on port 5000');
+app.listen(port, () => {
+    console.log(`listening on port ${port}`);
 })
