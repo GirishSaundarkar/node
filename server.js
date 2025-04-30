@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const app = require('./app');
+const dotenv = require('dotenv');
+dotenv.config({ path: "./.env" });
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/myDatabase"
-
-mongoose.connect(MONGO_URL, {
+mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
 }).then(() => {
     console.log('DB connection successful!');

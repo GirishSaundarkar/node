@@ -14,4 +14,11 @@ if (process.env.NODE_ENV === 'development') {
     });
 }
 
+// global middleware
+// app.get('*', (req, res, next) => {
+//     res.status(404).json({
+//         status: 'fail',
+//         message: `can't find ${req.originalUrl}`
+//     })
+// })
 module.exports = app;
