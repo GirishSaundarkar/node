@@ -5,9 +5,8 @@ const AppError = require('./utils/appError');
 
 const app = express();
 
-const dirName = _dirname;
 if (process.env.NODE_ENV === 'development') {
-    app.use(express.static(`${dirName}/publlic`));
+    app.use(express.static(`${_dirname}/publlic`));
 
     app.use((req, res, next) => {
         req.requestTime = new Date().toISOString();
